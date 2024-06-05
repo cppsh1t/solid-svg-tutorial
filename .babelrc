@@ -1,0 +1,3 @@
+{
+  "plugins": ["solid-styled-jsx/babel", "styled-jsx/babel"]
+}
