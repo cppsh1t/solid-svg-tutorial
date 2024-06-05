@@ -10,11 +10,14 @@
     "deploy": "npm run build & gh-pages -d dist"
   },
   "dependencies": {
+    "prism-themes": "^1.9.0",
+    "prismjs": "^1.29.0",
     "radash": "^12.1.0",
     "solid-js": "^1.8.15"
   },
   "devDependencies": {
     "@babel/core": "^7.24.6",
+    "@types/prismjs": "^1.26.4",
     "autoprefixer": "^10.4.19",
     "gh-pages": "^6.1.1",
     "postcss": "^8.4.38",
@@ -24,6 +27,7 @@
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
     "vite-plugin-babel": "^1.2.0",
+    "vite-plugin-prismjs": "^0.0.11",
     "vite-plugin-solid": "^2.10.2"
   }
 }

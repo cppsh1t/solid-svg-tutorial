@@ -1,6 +1,6 @@
 import { For, JSX, createSignal } from 'solid-js'
 import { Dynamic } from 'solid-js/web'
-
+import * as Prism from 'prismjs';
 const svgStyle = 'boder-r-1 border-slate-500 border-solid'
 
 type Item = { name: string; component: () => JSX.Element; code: string }
@@ -135,6 +135,7 @@ function SVGTest() {
   const [currentSVG, setSVG] = createSignal<Item>(config[config.length - 1])
   const handleChange = (item: Item) => {
     setSVG(item)
+      Prism.highlightAll()
   }
   const btnStyle = 'p-3 rounded-lg shadow-lg border-none bg-slate-200 hover:bg-slate-300 active:bg-slate-400'
   return (
@@ -151,11 +152,11 @@ function SVGTest() {
 
       <div class="mt-8">
         <Dynamic component={currentSVG().component} />
-        <div class=" bg-[#1e293b]">
-          <code style={{ 'white-space': 'pre-wrap' }} class="text-white">
+        <pre class=' rounded-xl'>
+          <code class="language-html">
             {currentSVG().code}
           </code>
-        </div>
+        </pre>
       </div>
     </div>
   )
