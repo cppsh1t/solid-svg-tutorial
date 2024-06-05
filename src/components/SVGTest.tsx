@@ -1,9 +1,9 @@
-import { For, JSX, createSignal } from 'solid-js'
+import { For, JSX, createMemo, createSignal } from 'solid-js'
 import { Dynamic } from 'solid-js/web'
-import * as Prism from 'prismjs';
-const svgStyle = 'boder-r-1 border-slate-500 border-solid'
+import * as Prism from 'prismjs'
 
 type Item = { name: string; component: () => JSX.Element; code: string }
+const svgStyle = 'boder-r-1 border-slate-500 border-solid'
 
 const config: Item[] = [
   {
@@ -132,12 +132,26 @@ const config: Item[] = [
 ]
 
 function SVGTest() {
+  let codeEle: HTMLPreElement | undefined
   const [currentSVG, setSVG] = createSignal<Item>(config[config.length - 1])
   const handleChange = (item: Item) => {
     setSVG(item)
-      Prism.highlightAll()
   }
   const btnStyle = 'p-3 rounded-lg shadow-lg border-none bg-slate-200 hover:bg-slate-300 active:bg-slate-400'
+
+  const currentCodeEle = createMemo(() => {
+    const codeString = currentSVG().code
+    const ele = (
+      <pre class=" rounded-xl">
+        <code ref={codeEle} class="language-html">
+          {codeString}
+        </code>
+      </pre>
+    )
+    Prism.highlightElement(codeEle!)
+    return ele
+  })
+
   return (
     <div class="p-3">
       <div class="flex flex-wrap gap-3">
@@ -152,11 +166,7 @@ function SVGTest() {
 
       <div class="mt-8">
         <Dynamic component={currentSVG().component} />
-        <pre class=' rounded-xl'>
-          <code class="language-html">
-            {currentSVG().code}
-          </code>
-        </pre>
+        {currentCodeEle()}
       </div>
     </div>
   )

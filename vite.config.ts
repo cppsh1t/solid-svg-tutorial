@@ -8,7 +8,7 @@ export default defineConfig({
     solid(), 
     babel({exclude: 'node_modules/**',}),
     prismjsPlugin({
-      languages: ['css', 'html'], // 指定需要加载的语言
+      languages: ['css', 'html'],
       css: true,
     }),
   ],
