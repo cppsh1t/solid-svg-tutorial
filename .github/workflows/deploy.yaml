@@ -12,8 +12,14 @@ jobs:
       - name: get actions/checkout
         uses: actions/checkout@v4
 
-      - name: install, build and deploy
+      - name: install and build 
         run: |
           npm install
           npm run build
-          npm run deploy:direct
+      
+      - name: deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: build
+
