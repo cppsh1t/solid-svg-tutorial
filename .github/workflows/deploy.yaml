@@ -17,6 +17,11 @@ jobs:
           npm install
           npm run build
       
+      - name: check 
+        run: |
+          cd /home/runner/work/solid-svg-tutorial
+          ls
+
       - name: deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
