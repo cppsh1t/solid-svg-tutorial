@@ -15,4 +15,5 @@ jobs:
       - name: install, build and deploy
         run: |
           npm install
-          npm run deploy
+          npm run build
+          npm run deploy:direct
