@@ -1,9 +1,11 @@
-import SVGTest from './components/SVGTest'
+import { render } from './utils/util'
 
 function App() {
   return (
     <div class="w-full h-full overflow-hidden">
-      <SVGTest></SVGTest>
+      {
+        render()
+      }
     </div>
   )
 }
