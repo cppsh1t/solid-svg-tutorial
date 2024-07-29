@@ -7,6 +7,7 @@ import { Gingerbread } from '../components/3_Gingerbread'
 import { House } from '../components/4_House'
 import { BasicPaths } from '../components/5_BasicPaths'
 import { Star } from '../components/6_Star'
+import { Clock } from '../components/7_Clock'
 
 export const svgStyle = 'boder-r-1 border-slate-500 border-solid'
 
@@ -59,11 +60,13 @@ export function render() {
   )
 }
 
+
 const config: Item[] = [
   BaseShape,
   ChristmasTree,
   Gingerbread,
   House,
   BasicPaths,
-  Star
+  Star, 
+  Clock
 ]
