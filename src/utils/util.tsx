@@ -6,6 +6,7 @@ import { ChristmasTree } from '../components/2_ChristmasTree'
 import { Gingerbread } from '../components/3_Gingerbread'
 import { House } from '../components/4_House'
 import { BasicPaths } from '../components/5_BasicPaths'
+import { Star } from '../components/6_Star'
 
 export const svgStyle = 'boder-r-1 border-slate-500 border-solid'
 
@@ -63,5 +64,6 @@ const config: Item[] = [
   ChristmasTree,
   Gingerbread,
   House,
-  BasicPaths
+  BasicPaths,
+  Star
 ]
